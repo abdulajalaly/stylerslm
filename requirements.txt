@@ -1,4 +1,7 @@
 torch
 pandas
 numpy
-scikit-learn
+fastapi
+uvicorn
+pydantic
+tqdm
