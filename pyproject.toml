@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stylerslm"
+version = "0.1.0"
+description = "A PyTorch outfit compatibility scorer and recommendation API."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "StylerSLM contributors" }]
+dependencies = [
+    "fastapi>=0.100",
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "pydantic>=2.0",
+    "torch>=2.0",
+    "tqdm>=4.65",
+    "uvicorn[standard]>=0.23",
+]
+
+[project.optional-dependencies]
+dev = ["httpx>=0.24", "pytest>=7.4", "ruff>=0.6"]
+
+[project.scripts]
+stylerslm = "stylerslm.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]
